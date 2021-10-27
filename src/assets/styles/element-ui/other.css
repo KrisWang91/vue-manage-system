@@ -1,0 +1,160 @@
+/**
+ * element-ui样式覆盖
+ */
+
+/* 相邻button样式 */
+.el-button+.el-button {
+  margin-left: 12px;
+}
+
+/* 进度条样式覆盖 */
+.el-progress-bar{
+    padding-right: 100px;
+    margin-right: -100px;
+}
+
+/* 布局容器样式覆盖 */
+.el-header{
+  padding: 0;
+  color: #303133;
+  font-size: 14px;
+  font-weight: 500;
+  height: 52px;
+}
+.el-main{
+  padding-top: 0;
+}
+
+/* divider样式覆盖 */
+.el-divider{
+  background-color: #E5E7EE;
+}
+.el-divider--horizontal{
+  margin:14px 0;
+}
+
+/* 上传样式覆盖 */
+.avatar-uploader .el-upload {
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+}
+.avatar-uploader .el-upload:hover {
+  border-color: #409EFF;
+}
+.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+}
+ .avatar {
+  width: 178px;
+  height: 178px;
+  display: block;
+}
+.el-upload__tip{
+  font-size: 12px;
+  margin-top: 0px;
+  line-height: 1;
+  color: #8F9399;
+}
+
+/* 输入框样式覆盖 */
+.el-input__inner{
+  height: 32px;
+  line-height: 32px;
+  border: 1px solid #E5E7EE;
+  font-size: 12px;
+  color: #606265;
+}
+.el-input.is-disabled .el-input__inner{
+  background-color: #EBEEF5;
+}
+
+/* 表单样式覆盖 */
+.el-form-item__label{
+  padding: 0;
+}
+.el-form-item__label{
+  font-size: 12px;
+  color: #606265;
+}
+/* .el-button{
+  width: 64px;
+  height: 32px;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 400;
+  color: #303133;
+  padding: 0;
+} */
+.el-textarea{
+  font-size: 12px;
+  color: #606265;
+}
+.el-textarea.is-disabled .el-textarea__inner{
+  background-color: #EBEEF5;
+}
+
+
+/* 表格表头样式覆盖 */
+.el-table__header-wrapper{
+  height: 42px;
+  display: flex;
+  align-items: center;
+}
+
+/* 表格样式覆盖 */
+.el-table{
+  font-size: 12px;
+  border: 1px solid #E5E7EE;
+  border-radius: 8px;
+}
+.el-table thead{
+  color: #303133;
+  font-weight: 500;
+}
+.el-table th{
+  background-color: #F4F6F9;
+}
+.el-table th,.el-table td{
+  padding: 10px 0;
+}
+/* 对话框样式覆盖 */
+.el-dialog{
+  border-radius: 8px;
+}
+.el-dialog__header:after{
+  content: '';
+  width: 100%;
+  border-bottom: 1px solid #E5E7EE;
+  display: inline-block;
+}
+.el-dialog__body{
+  padding: 10px  20px 30px;
+}
+
+/* 图片组件边距移除 */
+.el-image {
+  display: block;
+}
+
+/* 颜色选择器隐藏清空按钮 隐藏中心icon */
+.el-color-dropdown__link-btn {
+  display: none !important;
+}
+
+.el-icon-arrow-down:before {
+  content: '';
+}
+
+/* Popover 弹出框 最小宽度 100px */
+.el-popover{
+  min-width: 100px !important;
+}
