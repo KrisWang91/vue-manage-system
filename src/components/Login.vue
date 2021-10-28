@@ -24,6 +24,7 @@
 
 <script>
 import { login } from '../api/user'
+import { setSession } from '@/utils/auth'
 
 export default {
   name: 'Login',
@@ -52,8 +53,11 @@ export default {
       this.$refs[formName].validate(async valid => {
         if (!valid) return
         // 解构返回结果
-        const { data: ret } = await login(this.formData)
-        console.log(ret)
+        const { data: ret, meta: msg } = await login(this.formData)
+        if (msg.status !== 200) return this.$message({ type: 'error', message: msg.msg })
+        this.$message({ type: 'success', message: '登录成功' })
+        setSession(ret.token)
+        this.$router.push('/home')
       })
     }
   }
