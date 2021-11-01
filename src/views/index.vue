@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-button @click="logout">退出</el-button>
+    1111
   </div>
 </template>
 

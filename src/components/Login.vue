@@ -91,14 +91,11 @@ export default {
         left: 50%;
         top: 10px;
         transform: translate(-50%, -50%);
-        background-color: #fff;
 
         img{
-          width: 100%;
-          height: 100%;
-          border-radius: 50%;
-          background-color: #eee;
+          margin-top: 15px;
         }
+
     }
 
     .login-form{

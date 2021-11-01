@@ -5,6 +5,7 @@ import store from './store'
 import ElementUI from 'element-ui'
 import { message } from '@/utils/reset-message'
 // 导入全局样式表
+import '@/assets/styles/global.scss'
 import '@/assets/styles/base.css'
 // 导入字体图标
 import '@/assets/fonts/iconfont.css'

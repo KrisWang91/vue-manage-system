@@ -1,5 +1,6 @@
+// Layout
+import Layout from '@/components/layout/index.vue'
 import Login from '@/components/Login.vue'
-import Home from '@/views/index.vue'
 
 export default [
   {
@@ -12,6 +13,14 @@ export default [
   },
   {
     path: '/home',
-    component: Home
+    redirect: '/welcome',
+    component: Layout,
+    children: [
+      {
+        path: '/welcome',
+        name: 'Welcome',
+        component: () => import('@/views/home/index.vue')
+      }
+    ]
   }
 ]
