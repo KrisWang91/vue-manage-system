@@ -17,3 +17,16 @@ export const getMenus = data => {
     data
   })
 }
+
+// 获取用户列表
+export const getUsers = data => {
+  return request({
+    url: 'users',
+    method: 'GET',
+    params: {
+      query: data.query,
+      pagenum: data.pagenum,
+      pagesize: data.pagesize
+    }
+  })
+}

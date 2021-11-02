@@ -1,6 +1,7 @@
 // Layout
 import Layout from '@/components/layout/index.vue'
 import Login from '@/components/Login.vue'
+import USERS from '@/router/modules/users.js'
 
 export default [
   {
@@ -15,6 +16,7 @@ export default [
     path: '/home',
     redirect: '/welcome',
     component: Layout,
+    meta: { title: '首页' },
     children: [
       {
         path: '/welcome',
@@ -22,5 +24,6 @@ export default [
         component: () => import('@/views/home/index.vue')
       }
     ]
-  }
+  },
+  USERS
 ]

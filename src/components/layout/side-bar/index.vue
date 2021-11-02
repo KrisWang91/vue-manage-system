@@ -10,14 +10,15 @@
       unique-opened
       :collapse="isCollapse"
       :collapse-transition="false"
-      router>
+      router
+      :default-active="$route.path">
       <el-submenu v-for="(menu, index) in menus" :key="index" :index="menu.order+''">
         <template slot="title">
           <i :class="iconList[menu.path]"></i>
           <span>{{menu.authName}}</span>
         </template>
         <el-menu-item-group v-if="menu.children">
-          <el-menu-item v-for="(subMenu, subIndex) in menu.children" :key="subIndex" :index="'/'+subMenu.path">
+          <el-menu-item v-for="(subMenu, subIndex) in menu.children" :auth-name="[menu.authName, subMenu.authName]" :key="subIndex" :index="'/'+subMenu.path">
             <template slot="title">
               <i class="el-icon-menu"></i>
               <span>{{subMenu.authName}}</span>
@@ -53,10 +54,8 @@ export default {
   },
   methods: {
     async getMenus () {
-      const { data, meta } = await getMenus()
+      const { data } = await getMenus({ page: 1 })
       this.menus = data || []
-      console.log(this.menus)
-      console.log(meta)
     }
   }
 }

@@ -7,6 +7,8 @@
       <side-bar></side-bar>
       <!-- 主要内容区 -->
       <el-main>
+        <!-- 面包屑 -->
+        <breadcrumb></breadcrumb>
         <router-view :key="$route.path" />
       </el-main>
     </el-container>
@@ -16,12 +18,14 @@
 <script>
 import NavHeader from './nav-header/index.vue'
 import SideBar from './side-bar/index.vue'
+import Breadcrumb from '../Breadcrumb.vue'
 
 export default {
   name: 'Layout',
   components: {
     NavHeader,
-    SideBar
+    SideBar,
+    Breadcrumb
   }
 }
 </script>
