@@ -1,5 +1,8 @@
 <template>
   <div class="main-wrap">
+    <!-- 新增 编辑弹框 -->
+    <user-dialog :title="userInfo.id ? '编辑用户' : '新增用户'" :visible.sync="visible" ></user-dialog>
+
     <!-- 搜索区 -->
     <div class="query-box">
       <div class="query-box__top">
@@ -42,20 +45,20 @@
         </el-table>
     </div>
     <!-- 分页 -->
-    <el-pagination
-      @size-change="handleSizeChange"
-      @current-change="handleCurrentChange"
-      :current-page="currentPage4"
-      :page-sizes="[10, 20, 30, 40]"
-      :page-size="100"
-      layout="total, sizes, prev, pager, next, jumper"
-      :total="total">
-    </el-pagination>
+    <list-pagination
+      v-if="tableData && tableData.length > 0"
+      :total="total"
+      :pagenum.sync="queryParams.pagenum"
+      :pagesize.sync="queryParams.pageSize"
+      @pagination="handleCurrentChange"
+    ></list-pagination>
   </div>
 </template>
 
 <script>
+import ListPagination from '@/components/ListPagination.vue'
 import { getUsers } from '@/api/user.js'
+import UserDialog from './components/user-dialog.vue'
 
 export default {
   name: 'Users',
@@ -67,15 +70,22 @@ export default {
         pagesize: 10
       },
       tableData: [],
-      total: 0
+      total: 0,
+      userInfo: {},
+      visible: false
     }
+  },
+  components: {
+    ListPagination,
+    UserDialog
   },
   created () {
     this.getUserList()
   },
   methods: {
     addUser () {
-
+      this.userInfo = {}
+      this.visible = true
     },
     async getUserList () {
       const { data } = await getUsers(this.queryParams)
@@ -86,10 +96,15 @@ export default {
       return index + 1
     },
     editUserInfo (row) {
-
+      this.userInfo = row
+      this.visible = true
     },
     delteUser (row) {
 
+    },
+    handleCurrentChange (val) {
+      this.queryParams = Object.assign(this.queryParams, val)
+      this.getUserList()
     }
   }
 }
